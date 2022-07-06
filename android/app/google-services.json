@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "567816729210",
+    "project_id": "elmosahem-app-ec4b8",
+    "storage_bucket": "elmosahem-app-ec4b8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:567816729210:android:ff34e46daa09ff884cc1c3",
+        "android_client_info": {
+          "package_name": "com.example.elmosahem_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "567816729210-c38h8pesttaorsehq18dikpit0pau3mv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAloyndZMfIlOzlgeaUDR5oAz4Q2cbeJs8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "567816729210-c38h8pesttaorsehq18dikpit0pau3mv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,18 @@
+<lint-module
+    format="1"
+    dir="/home/it400/Downloads/elmosahem_app/android/app"
+    name=":app"
+    type="APP"
+    maven="android:app:"
+    gradle="7.2.1"
+    buildFolder="/home/it400/Downloads/elmosahem_app/build/app"
+    bootClassPath="/home/it400/Android/Sdk/platforms/android-31/android.jar:/home/it400/Android/Sdk/build-tools/30.0.3/core-lambda-stubs.jar"
+    javaSourceLevel="1.8"
+    compileTarget="android-31">
+  <lintOptions
+      abortOnError="true"
+      absolutePaths="true"
+      checkReleaseBuilds="true"
+      explainIssues="true"/>
+  <variant name="release"/>
+</lint-module>

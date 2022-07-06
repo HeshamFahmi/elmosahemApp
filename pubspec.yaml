@@ -1,0 +1,50 @@
+name: elmosahem_app
+description: A new Flutter project.
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  cloud_firestore: ^3.1.17
+  cupertino_icons: ^1.0.0
+  enum_to_string: ^2.0.1
+  firebase_auth: ^3.3.19
+  firebase_core: ^1.17.1
+  firebase_storage: ^10.2.17
+  flutter:
+    sdk: flutter
+  flutter_launcher_icons: ^0.9.3
+  flutter_rating_bar: ^4.0.1
+  flutter_svg: ^1.0.3
+  flutter_tags: ^0.4.9+1
+  future_progress_dialog: ^0.2.0
+  google_fonts_arabic: ^1.1.7
+  image_picker: ^0.8.5+3
+  intl: ^0.17.0
+  logger: ^1.1.0
+  permission_handler: ^9.0.1
+  provider: ^6.0.3
+  string_validator: ^0.3.0
+  swipedetector: ^1.2.0
+  url_launcher: ^6.1.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/icons/
+
+  fonts:
+    - family: Muli
+      fonts:
+        - asset: assets/fonts/muli/Muli.ttf
+        - asset: assets/fonts/muli/Muli-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/muli/Muli-Light.ttf
+          weight: 300
