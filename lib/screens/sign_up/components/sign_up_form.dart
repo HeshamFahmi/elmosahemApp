@@ -22,6 +22,9 @@ class _SignUpFormState extends State<SignUpForm> {
   final TextEditingController confirmPasswordFieldController =
       TextEditingController();
 
+  bool passwordVisibility = true;
+  bool confirmPasswordVisibility = true;
+
   @override
   void dispose() {
     emailFieldController.dispose();
@@ -58,11 +61,21 @@ class _SignUpFormState extends State<SignUpForm> {
   Widget buildConfirmPasswordFormField() {
     return TextFormField(
       controller: confirmPasswordFieldController,
-      obscureText: true,
+      obscureText: confirmPasswordVisibility,
       decoration: InputDecoration(
         hintText: "اعد  كتابه كلمه السر",
         labelText: "تأكيد كلمه السر",
         floatingLabelBehavior: FloatingLabelBehavior.always,
+        prefixIcon: InkWell(
+            onTap: () {
+              setState(() {
+                confirmPasswordVisibility = !confirmPasswordVisibility;
+                print(confirmPasswordVisibility.toString());
+              });
+            },
+            child: confirmPasswordVisibility
+                ? Icon(Icons.visibility_rounded)
+                : Icon(Icons.visibility_off_rounded)),
         suffixIcon: CustomSuffixIcon(
           svgIcon: "assets/icons/Lock.svg",
         ),
@@ -109,15 +122,24 @@ class _SignUpFormState extends State<SignUpForm> {
   Widget buildPasswordFormField() {
     return TextFormField(
       controller: passwordFieldController,
-      obscureText: true,
+      obscureText: passwordVisibility,
       decoration: InputDecoration(
-        hintText: "ادخل كلمه السر",
-        labelText: "كلمه السر",
-        floatingLabelBehavior: FloatingLabelBehavior.always,
-        suffixIcon: CustomSuffixIcon(
-          svgIcon: "assets/icons/Lock.svg",
-        ),
-      ),
+          hintText: "ادخل كلمه السر",
+          labelText: "كلمه السر",
+          floatingLabelBehavior: FloatingLabelBehavior.always,
+          suffixIcon: CustomSuffixIcon(
+            svgIcon: "assets/icons/Lock.svg",
+          ),
+          prefixIcon: InkWell(
+            onTap: () {
+              setState(() {
+                passwordVisibility = !passwordVisibility;
+              });
+            },
+            child: passwordVisibility
+                ? Icon(Icons.visibility_rounded)
+                : Icon(Icons.visibility_off_rounded),
+          )),
       validator: (value) {
         if (passwordFieldController.text.isEmpty) {
           return kPassNullError;

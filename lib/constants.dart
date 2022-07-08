@@ -3,8 +3,8 @@ import 'size_config.dart';
 
 const String appName = "El-mosahem";
 
-const kPrimaryColor = Color(0xFFFF7643);
-const kPrimaryLightColor = Color(0xFFFFECDF);
+const kPrimaryColor = Color(0xFF003060);
+const kPrimaryLightColor = Color(0xFF0E86D4);
 const kPrimaryGradientColor = LinearGradient(
   begin: Alignment.topLeft,
   end: Alignment.bottomRight,
@@ -20,7 +20,7 @@ const double screenPadding = 10;
 final headingStyle = TextStyle(
   fontSize: getProportionateScreenWidth(28),
   fontWeight: FontWeight.bold,
-  color: Colors.black,
+  color: kPrimaryColor,
   height: 1.5,
 );
 

@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts_arabic/fonts.dart';
 import 'constants.dart';
 
 ThemeData theme() {
   var themeData = ThemeData(
     scaffoldBackgroundColor: Colors.white,
-    fontFamily: ArabicFonts.Cairo,
+    fontFamily: "Cairo",
     primarySwatch: Colors.blueGrey,
     appBarTheme: appBarTheme(),
     textTheme: textTheme(),

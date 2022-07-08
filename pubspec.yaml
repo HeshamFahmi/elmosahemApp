@@ -40,6 +40,7 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - assets/categories/
 
   fonts:
     - family: Muli
@@ -49,3 +50,7 @@ flutter:
           weight: 700
         - asset: assets/fonts/muli/Muli-Light.ttf
           weight: 300
+    - family: Cairo
+      fonts:
+        - asset: assets/fonts/Cairo/IBM.ttf
+

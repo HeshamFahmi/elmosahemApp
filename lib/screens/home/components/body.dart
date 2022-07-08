@@ -1,5 +1,3 @@
-import 'package:elmosahem_app/screens/allProducts/allProducts.dart';
-import 'package:elmosahem_app/screens/fav/favorite.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import '../../../components/async_progress_dialog.dart';
@@ -18,12 +16,11 @@ import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 import '../../../utils.dart';
 import '../components/home_header.dart';
-import 'product_type_box.dart';
-import 'products_section.dart';
 
 const String ICON_KEY = "icon";
 const String TITLE_KEY = "title";
 const String PRODUCT_TYPE_KEY = "product_type";
+const String DESCRIPTION = "description";
 
 class Body extends StatefulWidget {
   @override
@@ -33,24 +30,28 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
   final productCategories = <Map>[
     <String, dynamic>{
-      ICON_KEY: "assets/icons/Flash Icon.svg",
+      ICON_KEY: "assets/categories/return-on-investment.png",
       TITLE_KEY: "استثمار",
       PRODUCT_TYPE_KEY: ProductType.Investment,
+      DESCRIPTION: "احصل على افضل استثمارات مع المساهم الان"
     },
     <String, dynamic>{
-      ICON_KEY: "assets/icons/Bill Icon.svg",
+      ICON_KEY: "assets/categories/fortune-wheel.png",
       TITLE_KEY: "يناصيب",
       PRODUCT_TYPE_KEY: ProductType.Lottery,
+      DESCRIPTION: "احصل على افضل الحظوظ والهدايا"
     },
     <String, dynamic>{
-      ICON_KEY: "assets/icons/Fashion.svg",
+      ICON_KEY: "assets/categories/machinery.png",
       TITLE_KEY: "معدات ثقيله",
       PRODUCT_TYPE_KEY: ProductType.Heavy_Equipment,
+      DESCRIPTION: "افضل المعدات المتاحه الثفيله"
     },
     <String, dynamic>{
-      ICON_KEY: "assets/icons/Others.svg",
+      ICON_KEY: "assets/categories/other.png",
       TITLE_KEY: "اخرى",
       PRODUCT_TYPE_KEY: ProductType.Others,
+      DESCRIPTION: "والكثير الكثير من المنتجات والجوائز فى انتظارك"
     },
   ];
 
@@ -161,42 +162,43 @@ class _BodyState extends State<Body> {
                 //   });
                 // }),
                 SizedBox(height: getProportionateScreenHeight(15)),
-                SizedBox(
-                  height: SizeConfig.screenHeight * 0.1,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 4),
-                    child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      physics: BouncingScrollPhysics(),
-                      children: [
-                        ...List.generate(
-                          productCategories.length,
-                          (index) {
-                            return Padding(
-                              padding: EdgeInsets.only(left: 10, right: 10),
-                              child: ProductTypeBox(
-                                icon: productCategories[index][ICON_KEY],
-                                title: productCategories[index][TITLE_KEY],
-                                onPress: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) =>
-                                          CategoryProductsScreen(
-                                        productType: productCategories[index]
-                                            [PRODUCT_TYPE_KEY],
-                                      ),
-                                    ),
-                                  );
-                                },
-                              ),
-                            );
-                          },
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+                // SizedBox(
+                //   height: SizeConfig.screenHeight * 0.1,
+                //   child: Padding(
+                //     padding: const EdgeInsets.symmetric(vertical: 4),
+                //     child: ListView(
+                //       scrollDirection: Axis.horizontal,
+                //       physics: BouncingScrollPhysics(),
+                //       children: [
+                //         ...List.generate(
+                //           productCategories.length,
+                //           (index) {
+                //             return Padding(
+                //               padding: EdgeInsets.only(left: 10, right: 10),
+                //               child: ProductTypeBox(
+                //                 icon: productCategories[index][ICON_KEY],
+                //                 title: productCategories[index][TITLE_KEY],
+                //                 onPress: () {
+                //                   Navigator.push(
+                //                     context,
+                //                     MaterialPageRoute(
+                //                       builder: (context) =>
+                //                           CategoryProductsScreen(
+                //                         productType: productCategories[index]
+                //                             [PRODUCT_TYPE_KEY],
+                //                       ),
+                //                     ),
+                //                   );
+                //                 },
+                //               ),
+                //             );
+                //           },
+                //         ),
+                //       ],
+                //     ),
+                //   ),
+                // ),
+
                 SizedBox(height: getProportionateScreenHeight(20)),
                 StreamBuilder<User>(
                     stream: AuthentificationService().userChanges,
@@ -218,34 +220,121 @@ class _BodyState extends State<Body> {
                         );
                       }
                     }),
+                SizedBox(height: getProportionateScreenHeight(20)),
 
-                Image.network(
-                  "https://images.assetsdelivery.com/compings_v2/maxborovkov/maxborovkov1808/maxborovkov180800485.jpg",
-                  width: double.infinity,
+                Container(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ListView.builder(
+                      itemCount: productCategories.length,
+                      shrinkWrap: true,
+                      physics: BouncingScrollPhysics(),
+                      padding: EdgeInsets.zero,
+                      itemBuilder: (BuildContext context, int index) {
+                        return InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => CategoryProductsScreen(
+                                  productType: productCategories[index]
+                                      [PRODUCT_TYPE_KEY],
+                                ),
+                              ),
+                            );
+                          },
+                          child: Container(
+                            padding: EdgeInsets.all(10.0),
+                            margin: EdgeInsets.all(10.0),
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15.0),
+                                color: kSecondaryColor.withOpacity(0.1)),
+                            child: ListTile(
+                                leading: Image.asset(
+                                    productCategories[index][ICON_KEY]),
+                                trailing: Icon(Icons.arrow_forward_ios_rounded),
+                                title: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      productCategories[index][TITLE_KEY],
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 20.0,
+                                          color: kPrimaryColor),
+                                    ),
+                                    SizedBox(
+                                      height: 10.0,
+                                    ),
+                                    Text(
+                                      productCategories[index][DESCRIPTION],
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.normal,
+                                          fontSize: 15.0,
+                                          color: kPrimaryColor),
+                                    )
+                                  ],
+                                )),
+                          ),
+                        );
+                      }),
                 ),
+
                 SizedBox(height: getProportionateScreenHeight(20)),
-                SizedBox(
-                  height: SizeConfig.screenHeight * 0.35,
-                  child: ProductsSection(
-                    screenName: Favorite(),
-                    sectionTitle: "اعجبك",
-                    productsStreamController: favouriteProductsStream,
-                    emptyListMessage: "اضف الي قائمه المفضله",
-                    onProductCardTapped: onProductCardTapped,
+
+                InkWell(
+                  onTap: () {
+                    showModalBottomSheet<void>(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return Container(
+                            height: 250,
+                            color: kSecondaryColor.withOpacity(0.1),
+                            child: Center(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                mainAxisSize: MainAxisSize.min,
+                                children: <Widget>[
+                                  Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: Text(
+                                      'المساهم هو تطبيق لبيع المنتجات وايضا لاقسام الاستثمار والتجاره والكثير من الاقسام المتاحه المفيده للمستخدم لدينا',
+                                      style: headingStyle,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        });
+                  },
+                  child: Text(
+                    " اعرف نبـذه عــن المســاهــم !!",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18.0,
+                        color: kPrimaryColor),
                   ),
-                ),
-                SizedBox(height: getProportionateScreenHeight(20)),
-                SizedBox(
-                  height: SizeConfig.screenHeight * 0.35,
-                  child: ProductsSection(
-                    screenName: AllProducts(),
-                    sectionTitle: "تفقد جميع الخدمات",
-                    productsStreamController: allProductsStream,
-                    emptyListMessage: "لا يوجد خدمات حاليه عاود مره اخري",
-                    onProductCardTapped: onProductCardTapped,
-                  ),
-                ),
-                SizedBox(height: getProportionateScreenHeight(80)),
+                )
+                // SizedBox(
+                //   height: SizeConfig.screenHeight * 0.35,
+                //   child: ProductsSection(
+                //     screenName: Favorite(),
+                //     sectionTitle: "اعجبك",
+                //     productsStreamController: favouriteProductsStream,
+                //     emptyListMessage: "اضف الي قائمه المفضله",
+                //     onProductCardTapped: onProductCardTapped,
+                //   ),
+                // ),
+                // SizedBox(
+                //   height: SizeConfig.screenHeight * 0.35,
+                //   child: ProductsSection(
+                //     screenName: AllProducts(),
+                //     sectionTitle: "تفقد جميع الخدمات",
+                //     productsStreamController: allProductsStream,
+                //     emptyListMessage: "لا يوجد خدمات حاليه عاود مره اخري",
+                //     onProductCardTapped: onProductCardTapped,
+                //   ),
+                // ),
               ],
             ),
           ),

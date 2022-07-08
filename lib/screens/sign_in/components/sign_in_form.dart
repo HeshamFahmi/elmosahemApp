@@ -25,6 +25,8 @@ class _SignInFormState extends State<SignInForm> {
   final TextEditingController emailFieldController = TextEditingController();
   final TextEditingController passwordFieldController = TextEditingController();
 
+  bool passwordVisibility = true;
+
   @override
   void dispose() {
     emailFieldController.dispose();
@@ -79,15 +81,24 @@ class _SignInFormState extends State<SignInForm> {
   Widget buildPasswordFormField() {
     return TextFormField(
       controller: passwordFieldController,
-      obscureText: true,
+      obscureText: passwordVisibility,
       decoration: InputDecoration(
-        hintText: "ادخل كلمه السر",
-        labelText: "كلمه السر",
-        floatingLabelBehavior: FloatingLabelBehavior.always,
-        suffixIcon: CustomSuffixIcon(
-          svgIcon: "assets/icons/Lock.svg",
-        ),
-      ),
+          hintText: "ادخل كلمه السر",
+          labelText: "كلمه السر",
+          floatingLabelBehavior: FloatingLabelBehavior.always,
+          suffixIcon: CustomSuffixIcon(
+            svgIcon: "assets/icons/Lock.svg",
+          ),
+          prefixIcon: InkWell(
+            onTap: () {
+              setState(() {
+                passwordVisibility = !passwordVisibility;
+              });
+            },
+            child: passwordVisibility
+                ? Icon(Icons.visibility_rounded)
+                : Icon(Icons.visibility_off_rounded),
+          )),
       validator: (value) {
         if (passwordFieldController.text.isEmpty) {
           return kPassNullError;

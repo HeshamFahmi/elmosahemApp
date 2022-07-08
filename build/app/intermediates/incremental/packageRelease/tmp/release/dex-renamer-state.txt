@@ -1,4 +1,4 @@
-#Wed Jul 06 07:29:55 EET 2022
+#Fri Jul 08 14:03:45 EET 2022
 base.0=/home/it400/Downloads/elmosahem_app/build/app/intermediates/dex/release/minifyReleaseWithR8/classes.dex
 renamed.0=classes.dex
 path.0=classes.dex
