@@ -49,8 +49,8 @@ class ExpandableText extends StatelessWidget {
                 children: [
                   Text(
                     expandText.isExpanded == false
-                        ? "See more details"
-                        : "Show less details",
+                        ? "رؤية المزيد"
+                        : "رؤية تفاصيل اقل",
                     style: TextStyle(
                       color: kPrimaryColor,
                       fontWeight: FontWeight.w600,

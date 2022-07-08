@@ -1,23 +1,25 @@
-import '../../../components/nothingtoshow_container.dart';
-import '../../../components/product_card.dart';
-import 'section_tile.dart';
-import '../../../services/data_streams/data_stream.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 
+import '../../../components/nothingtoshow_container.dart';
+import '../../../components/product_card.dart';
+import '../../../services/data_streams/data_stream.dart';
 import '../../../size_config.dart';
+import 'section_tile.dart';
 
 class ProductsSection extends StatelessWidget {
   final String sectionTitle;
   final DataStream productsStreamController;
   final String emptyListMessage;
   final Function onProductCardTapped;
+  final Widget screenName;
   const ProductsSection({
     Key key,
     @required this.sectionTitle,
     @required this.productsStreamController,
-    this.emptyListMessage = "لا يوجد خدمات هنا",
     @required this.onProductCardTapped,
+    this.emptyListMessage = "لا يوجد خدمات هنا",
+    @required this.screenName,
   }) : super(key: key);
 
   @override
@@ -34,9 +36,7 @@ class ProductsSection extends StatelessWidget {
       child: Column(
         children: [
           SectionTile(
-            title: sectionTitle,
-            press: () {},
-          ),
+              title: sectionTitle, press: () {}, screenName: screenName),
           SizedBox(height: getProportionateScreenHeight(15)),
           Expanded(
             child: buildProductsList(),

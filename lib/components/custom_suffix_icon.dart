@@ -14,7 +14,7 @@ class CustomSuffixIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.fromLTRB(
-        0,
+        getProportionateScreenWidth(20),
         getProportionateScreenWidth(20),
         getProportionateScreenWidth(20),
         getProportionateScreenWidth(20),

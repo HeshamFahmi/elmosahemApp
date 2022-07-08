@@ -677,8 +677,8 @@ class _EditProductFormState extends State<EditProductForm> {
   Future<void> addImageButtonCallback({int index}) async {
     final productDetails = Provider.of<ProductDetails>(context, listen: false);
     if (index == null && productDetails.selectedImages.length >= 3) {
-      ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text("Max 3 images can be uploaded")));
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text("3 صور بحد اقصى للرقع")));
       return;
     }
     String path;

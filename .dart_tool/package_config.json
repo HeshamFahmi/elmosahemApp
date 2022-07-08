@@ -68,6 +68,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "country_code_picker",
+      "rootUri": "file:///home/it400/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/country_code_picker-2.0.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "cross_file",
       "rootUri": "file:///home/it400/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/cross_file-0.3.3+1",
       "packageUri": "lib/",
@@ -296,6 +302,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "modal_bottom_sheet",
+      "rootUri": "file:///home/it400/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/modal_bottom_sheet-2.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "nested",
       "rootUri": "file:///home/it400/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/nested-1.0.0",
       "packageUri": "lib/",
@@ -428,6 +440,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "universal_platform",
+      "rootUri": "file:///home/it400/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/universal_platform-1.0.0+1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "url_launcher",
       "rootUri": "file:///home/it400/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher-6.1.4",
       "packageUri": "lib/",
@@ -500,7 +518,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2022-07-05T13:22:33.809127Z",
+  "generated": "2022-07-08T10:39:19.590753Z",
   "generator": "pub",
   "generatorVersion": "2.17.1"
 }

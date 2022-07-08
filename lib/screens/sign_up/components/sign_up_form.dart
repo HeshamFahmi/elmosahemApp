@@ -8,6 +8,7 @@ import '../../../size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 import '../../../constants.dart';
+import '../../bottomNavigation/bottomBar.dart';
 
 class SignUpForm extends StatefulWidget {
   @override
@@ -45,7 +46,7 @@ class _SignUpFormState extends State<SignUpForm> {
             buildConfirmPasswordFormField(),
             SizedBox(height: getProportionateScreenHeight(40)),
             DefaultButton(
-              text: "Sign up",
+              text: "تسجيل حساب جديد",
               press: signUpButtonCallback,
             ),
           ],
@@ -152,6 +153,10 @@ class _SignUpFormState extends State<SignUpForm> {
         );
         if (signUpStatus == true) {
           snackbarMessage = "تم الستجيل بنجاح برجاء تأكيد الايميل";
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => BottomBar()),
+          );
         } else {
           throw FirebaseSignUpAuthUnknownReasonFailureException();
         }
@@ -167,7 +172,10 @@ class _SignUpFormState extends State<SignUpForm> {
           ),
         );
         if (signUpStatus == true) {
-          Navigator.pop(context);
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => BottomBar()),
+          );
         }
       }
     }

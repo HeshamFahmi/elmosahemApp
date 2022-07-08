@@ -28,7 +28,7 @@ class ProductReviewsSection extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  "Product Reviews",
+                  "تقييم المنتج",
                   style: TextStyle(
                     fontSize: 21,
                     color: Colors.black,
@@ -54,7 +54,7 @@ class ProductReviewsSection extends StatelessWidget {
                                 ),
                                 SizedBox(height: 8),
                                 Text(
-                                  "No reviews yet",
+                                  "لا يوجد تقيمات بعد !",
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                   ),

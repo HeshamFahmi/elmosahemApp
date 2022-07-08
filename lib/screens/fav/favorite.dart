@@ -1,9 +1,9 @@
+import 'package:elmosahem_app/screens/fav/productSection.dart';
 import 'package:flutter/material.dart';
 
 import '../../services/data_streams/all_products_stream.dart';
 import '../../services/data_streams/favourite_products_stream.dart';
 import '../../size_config.dart';
-import '../home/components/products_section.dart';
 import '../product_details/product_details_screen.dart';
 
 class Favorite extends StatefulWidget {
@@ -47,8 +47,7 @@ class _FavoriteState extends State<Favorite> {
           SizedBox(height: getProportionateScreenHeight(20)),
           SizedBox(
             height: SizeConfig.screenHeight * 0.5,
-            child: ProductsSection(
-              sectionTitle: "اعجبك",
+            child: Productsection(
               productsStreamController: favouriteProductsStream,
               emptyListMessage: "اضف الي قائمه المفضله",
               onProductCardTapped: onProductCardTapped,

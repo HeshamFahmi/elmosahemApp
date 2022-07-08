@@ -256,7 +256,7 @@ class _BodyState extends State<Body> {
         return "assets/icons/Flash Icon.svg";
       case ProductType.Lottery:
         return "assets/icons/Bill Icon.svg";
-      case ProductType.Gifts:
+      case ProductType.Heavy_Equipment:
         return "assets/icons/Gift Icon.svg";
       case ProductType.Others:
         return "assets/icons/Discover.svg";

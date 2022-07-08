@@ -50,9 +50,9 @@ class _BodyState extends State<Body> {
               child: Column(
                 children: [
                   SizedBox(height: getProportionateScreenHeight(20)),
-                  Text("Your Products", style: headingStyle),
+                  Text("منتجاتك", style: headingStyle),
                   Text(
-                    "Swipe LEFT to Edit, Swipe RIGHT to Delete",
+                    "حرك لليمين للمسح , حرك للشمال للتعديل",
                     style: TextStyle(fontSize: 12),
                   ),
                   SizedBox(height: getProportionateScreenHeight(30)),
@@ -66,8 +66,7 @@ class _BodyState extends State<Body> {
                           if (productsIds.length == 0) {
                             return Center(
                               child: NothingToShowContainer(
-                                secondaryMessage:
-                                    "Add your first Product to Sell",
+                                secondaryMessage: "اضف منتجك الاول للبيع",
                               ),
                             );
                           }
@@ -165,7 +164,7 @@ class _BodyState extends State<Body> {
       confirmDismiss: (direction) async {
         if (direction == DismissDirection.startToEnd) {
           final confirmation = await showConfirmationDialog(
-              context, "Are you sure to Delete Product?");
+              context, "هل انت متأكد من مسح هذا المنتج");
           if (confirmation) {
             for (int i = 0; i < product.images.length; i++) {
               String path =
@@ -261,7 +260,7 @@ class _BodyState extends State<Body> {
           ),
           SizedBox(width: 4),
           Text(
-            "Edit",
+            "تعديل",
             style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.bold,

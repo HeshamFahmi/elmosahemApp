@@ -1,3 +1,7 @@
+import 'package:elmosahem_app/screens/allProducts/allProducts.dart';
+import 'package:elmosahem_app/screens/fav/favorite.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 import '../../../components/async_progress_dialog.dart';
 import '../../../constants.dart';
 import '../../../models/Product.dart';
@@ -40,8 +44,8 @@ class _BodyState extends State<Body> {
     },
     <String, dynamic>{
       ICON_KEY: "assets/icons/Fashion.svg",
-      TITLE_KEY: "هدايا",
-      PRODUCT_TYPE_KEY: ProductType.Gifts,
+      TITLE_KEY: "معدات ثقيله",
+      PRODUCT_TYPE_KEY: ProductType.Heavy_Equipment,
     },
     <String, dynamic>{
       ICON_KEY: "assets/icons/Others.svg",
@@ -194,9 +198,36 @@ class _BodyState extends State<Body> {
                   ),
                 ),
                 SizedBox(height: getProportionateScreenHeight(20)),
+                StreamBuilder<User>(
+                    stream: AuthentificationService().userChanges,
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+                        final user = snapshot.data;
+                        return Text(
+                          "مرحبا ${user.displayName ?? "No Name"}",
+                          style: headingStyle,
+                        );
+                      } else if (snapshot.connectionState ==
+                          ConnectionState.waiting) {
+                        return Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      } else {
+                        return Center(
+                          child: Icon(Icons.error),
+                        );
+                      }
+                    }),
+
+                Image.network(
+                  "https://images.assetsdelivery.com/compings_v2/maxborovkov/maxborovkov1808/maxborovkov180800485.jpg",
+                  width: double.infinity,
+                ),
+                SizedBox(height: getProportionateScreenHeight(20)),
                 SizedBox(
-                  height: SizeConfig.screenHeight * 0.5,
+                  height: SizeConfig.screenHeight * 0.35,
                   child: ProductsSection(
+                    screenName: Favorite(),
                     sectionTitle: "اعجبك",
                     productsStreamController: favouriteProductsStream,
                     emptyListMessage: "اضف الي قائمه المفضله",
@@ -205,8 +236,9 @@ class _BodyState extends State<Body> {
                 ),
                 SizedBox(height: getProportionateScreenHeight(20)),
                 SizedBox(
-                  height: SizeConfig.screenHeight * 0.8,
+                  height: SizeConfig.screenHeight * 0.35,
                   child: ProductsSection(
+                    screenName: AllProducts(),
                     sectionTitle: "تفقد جميع الخدمات",
                     productsStreamController: allProductsStream,
                     emptyListMessage: "لا يوجد خدمات حاليه عاود مره اخري",

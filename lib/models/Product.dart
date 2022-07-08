@@ -4,7 +4,7 @@ import 'package:enum_to_string/enum_to_string.dart';
 enum ProductType {
   Investment,
   Lottery,
-  Gifts,
+  Heavy_Equipment,
   Others,
 }
 

@@ -58,6 +58,7 @@ class _BodyState extends State<Body> {
                     ),
                     Spacer(flex: 1),
                     DefaultButton(
+                      icon: Icons.email,
                       color: kPrimaryColor,
                       text: "تسجيل الدخول باستخدام الايميل",
                       press: () {
@@ -72,6 +73,7 @@ class _BodyState extends State<Body> {
                       height: 10.0,
                     ),
                     DefaultButton(
+                      icon: Icons.phonelink_setup_sharp,
                       color: kPrimaryColor,
                       text: "تسجيل الدخول باستخدام الموبايل",
                       press: () {
@@ -86,6 +88,7 @@ class _BodyState extends State<Body> {
                       thickness: 2,
                     ),
                     DefaultButton(
+                      icon: Icons.verified_user,
                       color: kSecondaryColor,
                       text: "انشاء حساب",
                       press: () {

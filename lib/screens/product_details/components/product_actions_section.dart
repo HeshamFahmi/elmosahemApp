@@ -59,9 +59,9 @@ class ProductActionsSection extends StatelessWidget {
             bool allowed = AuthentificationService().currentUserVerified;
             if (!allowed) {
               final reverify = await showConfirmationDialog(context,
-                  "You haven't verified your email address. This action is only allowed for verified users.",
-                  positiveResponse: "Resend verification email",
-                  negativeResponse: "Go back");
+                  "لم يتم التحقيق من الايميل بعد . هذه الخدمه للمستخدمين المعروفين ققط",
+                  positiveResponse: "اعد ارسال اميل التحقيق",
+                  negativeResponse: "العوده للخلف");
               if (reverify) {
                 final future = AuthentificationService()
                     .sendVerificationEmailToCurrentUser();
@@ -98,8 +98,8 @@ class ProductActionsSection extends StatelessWidget {
                   future,
                   message: Text(
                     productDetails.productFavStatus
-                        ? "Removing from Favourites"
-                        : "Adding to Favourites",
+                        ? "مسح من المفضله"
+                        : "اضافه الى المفضله",
                   ),
                 );
               },
