@@ -7,12 +7,57 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:567816729210:android:88873b648c59234b4cc1c3",
+        "android_client_info": {
+          "package_name": "com.elmosahem.elmosahem_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "567816729210-8j1j2ufg3jre6ejagsa5hr1ndm6ekt5b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.elmosahem.elmosahem_app",
+            "certificate_hash": "dbcd0a808159d03098186a923ce731c7d8fd43f0"
+          }
+        },
+        {
+          "client_id": "567816729210-c38h8pesttaorsehq18dikpit0pau3mv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAloyndZMfIlOzlgeaUDR5oAz4Q2cbeJs8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "567816729210-c38h8pesttaorsehq18dikpit0pau3mv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:567816729210:android:ff34e46daa09ff884cc1c3",
         "android_client_info": {
           "package_name": "com.example.elmosahem_app"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "567816729210-n2qs2bti8oqc78f28ga3h66eovmepblf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.elmosahem_app",
+            "certificate_hash": "dbcd0a808159d03098186a923ce731c7d8fd43f0"
+          }
+        },
         {
           "client_id": "567816729210-c38h8pesttaorsehq18dikpit0pau3mv.apps.googleusercontent.com",
           "client_type": 3

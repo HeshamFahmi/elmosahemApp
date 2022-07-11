@@ -2,7 +2,9 @@ import 'Model.dart';
 import 'package:enum_to_string/enum_to_string.dart';
 
 enum ProductType {
-  Investment,
+  // Investment,
+  Farmland,
+  Real_Estates,
   Lottery,
   Heavy_Equipment,
   Others,

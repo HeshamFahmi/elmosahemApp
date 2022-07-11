@@ -1,6 +1,6 @@
 // ignore_for_file: non_constant_identifier_names
 
-import 'package:country_code_picker/country_code_picker.dart';
+import 'package:elmosahem_app/constants.dart';
 import 'package:elmosahem_app/services/authentification/authentification_service.dart';
 
 import '../../../components/default_button.dart';
@@ -46,7 +46,7 @@ class _ChangePhoneNumberFormState extends State<ChangePhoneNumberForm> {
                 _formKey.currentState.save();
 
                 AuthentificationService().signupWithPhone(
-                    countryCode + PhoneNumberController.text, context);
+                    "+2${PhoneNumberController.text}", context);
               }
             },
           ),
@@ -59,23 +59,8 @@ class _ChangePhoneNumberFormState extends State<ChangePhoneNumberForm> {
 
   Widget buildNewPhoneNumberField() {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Container(
-          width: MediaQuery.of(context).size.width * 0.2,
-          child: CountryCodePicker(
-            onChanged: (value) {
-              setState(() {
-                countryCode = value.toString();
-                print(countryCode);
-              });
-            },
-            initialSelection: 'eg',
-            favorite: ['+20', 'eg'],
-            showCountryOnly: false,
-            showOnlyCountryWhenClosed: false,
-            alignLeft: false,
-          ),
-        ),
         Container(
           width: MediaQuery.of(context).size.width * 0.7,
           child: TextFormField(
@@ -90,12 +75,34 @@ class _ChangePhoneNumberFormState extends State<ChangePhoneNumberForm> {
             validator: (value) {
               if (PhoneNumberController.text.isEmpty) {
                 return "رقم الموبايل لا يمكن ان يكون فارغ";
-              } else if (PhoneNumberController.text.length != 10) {
-                return "مسموح بعشر ارقام فقط";
+              } else if (PhoneNumberController.text.length != 11) {
+                return "مسموح ب11 ارقام فقط";
               }
               return null;
             },
             autovalidateMode: AutovalidateMode.onUserInteraction,
+          ),
+        ),
+        Container(
+          width: MediaQuery.of(context).size.width * 0.2,
+          child: Row(
+            children: [
+              Text("+20",
+                  style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                      color: kPrimaryColor)),
+              SizedBox(
+                width: 5.0,
+              ),
+              ClipRRect(
+                child: Image.asset(
+                  "assets/images/flag_egypt.png",
+                  width: 30,
+                  height: 30,
+                ),
+              ),
+            ],
           ),
         ),
       ],

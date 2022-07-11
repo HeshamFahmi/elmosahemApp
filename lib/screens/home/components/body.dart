@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import '../../../components/async_progress_dialog.dart';
 import '../../../constants.dart';
 import '../../../models/Product.dart';
+import '../../../services/database/user_database_helper.dart';
 import '../../cart/cart_screen.dart';
 import '../../category_products/category_products_screen.dart';
 import '../../product_details/product_details_screen.dart';
@@ -32,20 +33,38 @@ class _BodyState extends State<Body> {
     <String, dynamic>{
       ICON_KEY: "assets/categories/return-on-investment.png",
       TITLE_KEY: "استثمار",
-      PRODUCT_TYPE_KEY: ProductType.Investment,
-      DESCRIPTION: "احصل على افضل استثمارات مع المساهم الان"
-    },
-    <String, dynamic>{
-      ICON_KEY: "assets/categories/fortune-wheel.png",
-      TITLE_KEY: "يناصيب",
-      PRODUCT_TYPE_KEY: ProductType.Lottery,
-      DESCRIPTION: "احصل على افضل الحظوظ والهدايا"
+      PRODUCT_TYPE_KEY: ProductType.Farmland,
+      DESCRIPTION: ""
     },
     <String, dynamic>{
       ICON_KEY: "assets/categories/machinery.png",
       TITLE_KEY: "معدات ثقيله",
       PRODUCT_TYPE_KEY: ProductType.Heavy_Equipment,
       DESCRIPTION: "افضل المعدات المتاحه الثفيله"
+    },
+    <String, dynamic>{
+      ICON_KEY: "assets/categories/farmland.png",
+      TITLE_KEY: "اراضى زراعيه",
+      PRODUCT_TYPE_KEY: ProductType.Farmland,
+      DESCRIPTION: "افضل الاراضى الخصبه الصالحه للزراعه"
+    },
+    <String, dynamic>{
+      ICON_KEY: "assets/categories/agreement.png",
+      TITLE_KEY: "عقارات",
+      PRODUCT_TYPE_KEY: ProductType.Real_Estates,
+      DESCRIPTION: "الكثير من العقارات المتاحه والقريبه لك"
+    },
+    <String, dynamic>{
+      ICON_KEY: "assets/categories/lottery.png",
+      TITLE_KEY: "جرب حظــك",
+      PRODUCT_TYPE_KEY: ProductType.Real_Estates,
+      DESCRIPTION: ""
+    },
+    <String, dynamic>{
+      ICON_KEY: "assets/categories/fortune-wheel.png",
+      TITLE_KEY: "يناصيب",
+      PRODUCT_TYPE_KEY: ProductType.Lottery,
+      DESCRIPTION: "احصل على افضل الحظوظ والهدايا"
     },
     <String, dynamic>{
       ICON_KEY: "assets/categories/other.png",
@@ -55,6 +74,8 @@ class _BodyState extends State<Body> {
     },
   ];
 
+  var aboutApp;
+
   final FavouriteProductsStream favouriteProductsStream =
       FavouriteProductsStream();
   final AllProductsStream allProductsStream = AllProductsStream();
@@ -62,7 +83,7 @@ class _BodyState extends State<Body> {
   @override
   void initState() {
     super.initState();
-
+    getAbout();
     favouriteProductsStream.init();
     allProductsStream.init();
   }
@@ -230,52 +251,148 @@ class _BodyState extends State<Body> {
                       physics: BouncingScrollPhysics(),
                       padding: EdgeInsets.zero,
                       itemBuilder: (BuildContext context, int index) {
-                        return InkWell(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => CategoryProductsScreen(
-                                  productType: productCategories[index]
-                                      [PRODUCT_TYPE_KEY],
+                        if (index >= 1 && index < 4) {
+                          return InkWell(
+                            onTap: () {
+                              // print(index);
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => CategoryProductsScreen(
+                                    productType: productCategories[index]
+                                        [PRODUCT_TYPE_KEY],
+                                  ),
                                 ),
+                              );
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 20.0, right: 20.0),
+                              child: Container(
+                                padding: EdgeInsets.all(10.0),
+                                margin: EdgeInsets.all(10.0),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(15.0),
+                                    color: kSecondaryColor.withOpacity(0.1)),
+                                child: ListTile(
+                                    leading: Image.asset(
+                                        productCategories[index][ICON_KEY]),
+                                    trailing:
+                                        Icon(Icons.arrow_forward_ios_rounded),
+                                    title: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          productCategories[index][TITLE_KEY],
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.normal,
+                                              fontSize: 20.0,
+                                              color: kPrimaryColor),
+                                        ),
+                                        SizedBox(
+                                          height: 10.0,
+                                        ),
+                                        Text(
+                                          productCategories[index][DESCRIPTION],
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.normal,
+                                              fontSize: 15.0,
+                                              color: kPrimaryColor),
+                                        )
+                                      ],
+                                    )),
                               ),
-                            );
-                          },
-                          child: Container(
-                            padding: EdgeInsets.all(10.0),
-                            margin: EdgeInsets.all(10.0),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(15.0),
-                                color: kSecondaryColor.withOpacity(0.1)),
-                            child: ListTile(
-                                leading: Image.asset(
-                                    productCategories[index][ICON_KEY]),
-                                trailing: Icon(Icons.arrow_forward_ios_rounded),
-                                title: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      productCategories[index][TITLE_KEY],
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 20.0,
-                                          color: kPrimaryColor),
-                                    ),
-                                    SizedBox(
-                                      height: 10.0,
-                                    ),
-                                    Text(
-                                      productCategories[index][DESCRIPTION],
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.normal,
-                                          fontSize: 15.0,
-                                          color: kPrimaryColor),
-                                    )
-                                  ],
-                                )),
-                          ),
-                        );
+                            ),
+                          );
+                        } else if (index > 4 && index <= 6) {
+                          return InkWell(
+                            onTap: () {
+                              // print(index);
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => CategoryProductsScreen(
+                                    productType: productCategories[index]
+                                        [PRODUCT_TYPE_KEY],
+                                  ),
+                                ),
+                              );
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 20.0, right: 20.0),
+                              child: Container(
+                                padding: EdgeInsets.all(10.0),
+                                margin: EdgeInsets.all(10.0),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(15.0),
+                                    color: kSecondaryColor.withOpacity(0.1)),
+                                child: ListTile(
+                                    leading: Image.asset(
+                                        productCategories[index][ICON_KEY]),
+                                    trailing:
+                                        Icon(Icons.arrow_forward_ios_rounded),
+                                    title: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          productCategories[index][TITLE_KEY],
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.normal,
+                                              fontSize: 20.0,
+                                              color: kPrimaryColor),
+                                        ),
+                                        SizedBox(
+                                          height: 10.0,
+                                        ),
+                                        Text(
+                                          productCategories[index][DESCRIPTION],
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.normal,
+                                              fontSize: 15.0,
+                                              color: kPrimaryColor),
+                                        )
+                                      ],
+                                    )),
+                              ),
+                            ),
+                          );
+                        } else {
+                          return InkWell(
+                            onTap: () {
+                              // print(index);
+                              // Navigator.push(
+                              //   context,
+                              //   MaterialPageRoute(
+                              //     builder: (context) => CategoryProductsScreen(
+                              //       productType: productCategories[index]
+                              //           [PRODUCT_TYPE_KEY],
+                              //     ),
+                              //   ),
+                              // );
+                            },
+                            child: Container(
+                              padding: EdgeInsets.all(10.0),
+                              margin: EdgeInsets.all(10.0),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(15.0),
+                                  color: kSecondaryColor.withOpacity(0.1)),
+                              child: ListTile(
+                                  leading: Image.asset(
+                                      productCategories[index][ICON_KEY]),
+                                  //trailing: Icon(Icons.arrow_forward_ios_rounded),
+                                  title: Text(
+                                    productCategories[index][TITLE_KEY],
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20.0,
+                                        color: Colors.black),
+                                  )),
+                            ),
+                          );
+                        }
                       }),
                 ),
 
@@ -297,7 +414,7 @@ class _BodyState extends State<Body> {
                                   Padding(
                                     padding: const EdgeInsets.all(10.0),
                                     child: Text(
-                                      'المساهم هو تطبيق لبيع المنتجات وايضا لاقسام الاستثمار والتجاره والكثير من الاقسام المتاحه المفيده للمستخدم لدينا',
+                                      aboutApp,
                                       style: headingStyle,
                                     ),
                                   ),
@@ -314,6 +431,9 @@ class _BodyState extends State<Body> {
                         fontSize: 18.0,
                         color: kPrimaryColor),
                   ),
+                ),
+                SizedBox(
+                  height: 20.0,
                 )
                 // SizedBox(
                 //   height: SizeConfig.screenHeight * 0.35,
@@ -341,6 +461,11 @@ class _BodyState extends State<Body> {
         ),
       ),
     );
+  }
+
+  getAbout() async {
+    aboutApp = await UserDatabaseHelper().aboutAppString();
+    //print(aboutApp);
   }
 
   Future<void> refreshPage() {

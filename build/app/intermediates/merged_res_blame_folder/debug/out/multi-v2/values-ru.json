@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.elmosahem_app-mergeDebugResources-15:/values-ru/values-ru.xml",
+            "outputFile": "com.elmosahem.elmosahem_app-mergeDebugResources-15:/values-ru/values-ru.xml",
             "map": [
                 {
                     "source": "/home/it400/.gradle/caches/transforms-3/11698cbc90bc5254a9cdf881ed83fcf0/transformed/browser-1.4.0/res/values-ru/values-ru.xml",

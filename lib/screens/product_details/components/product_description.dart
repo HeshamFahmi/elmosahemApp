@@ -48,7 +48,7 @@ class ProductDescription extends StatelessWidget {
                     flex: 4,
                     child: Text.rich(
                       TextSpan(
-                        text: "\$${product.discountPrice}   ",
+                        text: "EG${product.discountPrice}   ",
                         style: TextStyle(
                           color: kPrimaryColor,
                           fontWeight: FontWeight.w900,
@@ -56,7 +56,7 @@ class ProductDescription extends StatelessWidget {
                         ),
                         children: [
                           TextSpan(
-                            text: "\n\$${product.originalPrice}",
+                            text: "\nEG${product.originalPrice}",
                             style: TextStyle(
                               decoration: TextDecoration.lineThrough,
                               color: kTextColor,
@@ -95,7 +95,7 @@ class ProductDescription extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             ExpandableText(
-              title: "المواصفات",
+              title: "الشروط والاحكام",
               content: product.highlights,
             ),
             const SizedBox(height: 16),
@@ -106,7 +106,7 @@ class ProductDescription extends StatelessWidget {
             const SizedBox(height: 16),
             Text.rich(
               TextSpan(
-                text: " يباع من",
+                text: "يباع من ",
                 style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.bold,

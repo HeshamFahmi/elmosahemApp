@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.elmosahem_app-mergeDebugResources-15:/values-ne/values-ne.xml",
+            "outputFile": "com.elmosahem.elmosahem_app-mergeDebugResources-15:/values-ne/values-ne.xml",
             "map": [
                 {
                     "source": "/home/it400/.gradle/caches/transforms-3/51da72bfed900aa48c7698884849232e/transformed/jetified-play-services-base-18.0.1/res/values-ne/values.xml",

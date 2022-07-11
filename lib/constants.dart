@@ -24,6 +24,9 @@ final headingStyle = TextStyle(
   height: 1.5,
 );
 
+final splashTxtStyle =
+    TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: kPrimaryColor);
+
 const defaultDuration = Duration(milliseconds: 250);
 
 // Form Error

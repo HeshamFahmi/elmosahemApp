@@ -86,10 +86,10 @@ class _SignInFormState extends State<SignInForm> {
           hintText: "ادخل كلمه السر",
           labelText: "كلمه السر",
           floatingLabelBehavior: FloatingLabelBehavior.always,
-          suffixIcon: CustomSuffixIcon(
+          prefixIcon: CustomSuffixIcon(
             svgIcon: "assets/icons/Lock.svg",
           ),
-          prefixIcon: InkWell(
+          suffixIcon: InkWell(
             onTap: () {
               setState(() {
                 passwordVisibility = !passwordVisibility;
@@ -119,7 +119,7 @@ class _SignInFormState extends State<SignInForm> {
         hintText: "ادخل الايميل",
         labelText: "الايميل",
         floatingLabelBehavior: FloatingLabelBehavior.always,
-        suffixIcon: CustomSuffixIcon(
+        prefixIcon: CustomSuffixIcon(
           svgIcon: "assets/icons/Mail.svg",
         ),
       ),

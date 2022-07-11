@@ -397,7 +397,7 @@ class _EditProductFormState extends State<EditProductForm> {
       keyboardType: TextInputType.multiline,
       decoration: InputDecoration(
         hintText: "e.g., المساحه و المكان و غيره",
-        labelText: "المواصفات",
+        labelText: "الشروط والاحكام",
         floatingLabelBehavior: FloatingLabelBehavior.always,
       ),
       validator: (_) {

@@ -252,8 +252,8 @@ class _BodyState extends State<Body> {
 
   String bannerFromProductType() {
     switch (widget.productType) {
-      case ProductType.Investment:
-        return "assets/icons/Flash Icon.svg";
+      // case ProductType.Investment:
+      //   return "assets/icons/Flash Icon.svg";
       case ProductType.Lottery:
         return "assets/icons/Bill Icon.svg";
       case ProductType.Heavy_Equipment:

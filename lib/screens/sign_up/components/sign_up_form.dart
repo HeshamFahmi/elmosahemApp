@@ -66,7 +66,7 @@ class _SignUpFormState extends State<SignUpForm> {
         hintText: "اعد  كتابه كلمه السر",
         labelText: "تأكيد كلمه السر",
         floatingLabelBehavior: FloatingLabelBehavior.always,
-        prefixIcon: InkWell(
+        suffixIcon: InkWell(
             onTap: () {
               setState(() {
                 confirmPasswordVisibility = !confirmPasswordVisibility;
@@ -76,7 +76,7 @@ class _SignUpFormState extends State<SignUpForm> {
             child: confirmPasswordVisibility
                 ? Icon(Icons.visibility_rounded)
                 : Icon(Icons.visibility_off_rounded)),
-        suffixIcon: CustomSuffixIcon(
+        prefixIcon: CustomSuffixIcon(
           svgIcon: "assets/icons/Lock.svg",
         ),
       ),
@@ -103,7 +103,7 @@ class _SignUpFormState extends State<SignUpForm> {
         hintText: "ادخل الايميل",
         labelText: "الايميل",
         floatingLabelBehavior: FloatingLabelBehavior.always,
-        suffixIcon: CustomSuffixIcon(
+        prefixIcon: CustomSuffixIcon(
           svgIcon: "assets/icons/Mail.svg",
         ),
       ),
@@ -127,10 +127,10 @@ class _SignUpFormState extends State<SignUpForm> {
           hintText: "ادخل كلمه السر",
           labelText: "كلمه السر",
           floatingLabelBehavior: FloatingLabelBehavior.always,
-          suffixIcon: CustomSuffixIcon(
+          prefixIcon: CustomSuffixIcon(
             svgIcon: "assets/icons/Lock.svg",
           ),
-          prefixIcon: InkWell(
+          suffixIcon: InkWell(
             onTap: () {
               setState(() {
                 passwordVisibility = !passwordVisibility;

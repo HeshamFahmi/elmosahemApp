@@ -44,7 +44,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.example.elmosahem_app" 
+        applicationId "com.elmosahem.elmosahem_app" 
         minSdkVersion 21 
         targetSdkVersion 29 
         versionCode 1 

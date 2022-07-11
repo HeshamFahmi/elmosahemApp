@@ -131,7 +131,7 @@
     <string name="fallback_menu_item_share_link">Share link</string>
     <string name="gcm_defaultSenderId" translatable="false">567816729210</string>
     <string name="google_api_key" translatable="false">AIzaSyAloyndZMfIlOzlgeaUDR5oAz4Q2cbeJs8</string>
-    <string name="google_app_id" translatable="false">1:567816729210:android:c97dbed5a77c467a4cc1c3</string>
+    <string name="google_app_id" translatable="false">1:567816729210:android:88873b648c59234b4cc1c3</string>
     <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAloyndZMfIlOzlgeaUDR5oAz4Q2cbeJs8</string>
     <string name="google_storage_bucket" translatable="false">elmosahem-app-ec4b8.appspot.com</string>
     <string name="project_id" translatable="false">elmosahem-app-ec4b8</string>

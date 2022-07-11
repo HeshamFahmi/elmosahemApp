@@ -14,10 +14,10 @@ class CheckoutCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 30,
-        vertical: 15,
-      ),
+      // padding: const EdgeInsets.symmetric(
+      //   horizontal: 30,
+      //   vertical: 15,
+      // ),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.only(
@@ -34,11 +34,11 @@ class CheckoutCard extends StatelessWidget {
       ),
       child: SafeArea(
         child: Column(
-          mainAxisSize: MainAxisSize.min,
+          //mainAxisSize: MainAxisSize.min,
           children: [
-            SizedBox(height: getProportionateScreenHeight(20)),
+            //SizedBox(height: getProportionateScreenHeight(20)),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 FutureBuilder<num>(
                   future: UserDatabaseHelper().cartTotal,
@@ -70,7 +70,7 @@ class CheckoutCard extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: getProportionateScreenHeight(20)),
+            //SizedBox(height: getProportionateScreenHeight(20)),
           ],
         ),
       ),

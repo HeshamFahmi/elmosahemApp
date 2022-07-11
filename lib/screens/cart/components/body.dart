@@ -44,29 +44,37 @@ class _BodyState extends State<Body> {
     return SafeArea(
       child: RefreshIndicator(
         onRefresh: refreshPage,
-        child: SingleChildScrollView(
-          physics: AlwaysScrollableScrollPhysics(),
-          child: Padding(
-            padding: EdgeInsets.symmetric(
-                horizontal: getProportionateScreenWidth(screenPadding)),
-            child: SizedBox(
-              width: double.infinity,
-              child: Column(
-                children: [
-                  SizedBox(height: getProportionateScreenHeight(10)),
-                  Text(
-                    "سله التسوق",
-                    style: headingStyle,
+        child: Padding(
+          padding: EdgeInsets.symmetric(
+              horizontal: getProportionateScreenWidth(screenPadding)),
+          child: SizedBox(
+            width: double.infinity,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SingleChildScrollView(
+                  physics: AlwaysScrollableScrollPhysics(),
+                  child: Column(
+                    children: [
+                      SizedBox(height: getProportionateScreenHeight(10)),
+                      Text(
+                        "سله التسوق",
+                        style: headingStyle,
+                      ),
+                      SizedBox(height: getProportionateScreenHeight(20)),
+                      SizedBox(
+                        height: SizeConfig.screenHeight * 0.75,
+                        child: Center(
+                          child: buildCartItemsList(),
+                        ),
+                      ),
+                    ],
                   ),
-                  SizedBox(height: getProportionateScreenHeight(20)),
-                  SizedBox(
-                    height: SizeConfig.screenHeight * 0.75,
-                    child: Center(
-                      child: buildCartItemsList(),
-                    ),
-                  ),
-                ],
-              ),
+                ),
+                CheckoutCard(
+                  onCheckoutPressed: checkoutButtonCallback,
+                )
+              ],
             ),
           ),
         ),
@@ -435,6 +443,7 @@ class _BodyState extends State<Body> {
   Future<void> arrowUpCallback(String cartItemId) async {
     shutBottomSheet();
     final future = UserDatabaseHelper().increaseCartItemCount(cartItemId);
+
     future.then((status) async {
       if (status) {
         await refreshPage();
@@ -456,6 +465,7 @@ class _BodyState extends State<Body> {
         );
       },
     );
+    setState(() {});
   }
 
   Future<void> arrowDownCallback(String cartItemId) async {
@@ -482,5 +492,6 @@ class _BodyState extends State<Body> {
         );
       },
     );
+    setState(() {});
   }
 }

@@ -46,7 +46,7 @@ class AddToCartFAB extends StatelessWidget {
           addedSuccessfully =
               await UserDatabaseHelper().addProductToCart(productId);
           if (addedSuccessfully == true) {
-            snackbarMessage = "تم اضافهخ الخدمه بنجاح";
+            snackbarMessage = "تم اضافه الخدمه بنجاح";
           } else {
             throw "حدث خطأ حاول مره اخري";
           }

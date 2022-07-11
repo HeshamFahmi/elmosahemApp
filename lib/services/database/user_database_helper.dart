@@ -393,4 +393,9 @@ class UserDatabaseHelper {
         await firestore.collection(USERS_COLLECTION_NAME).doc(uid).get();
     return userDocSnapshot.data()[DP_KEY];
   }
+
+  aboutAppString() async {
+    final aboutString = await firestore.collection("app_about").get();
+    return aboutString.docs[0]["AboutString"];
+  }
 }

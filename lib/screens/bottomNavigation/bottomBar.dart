@@ -2,6 +2,7 @@
 
 import 'package:elmosahem_app/constants.dart';
 import 'package:elmosahem_app/screens/fav/favorite.dart';
+import 'package:elmosahem_app/screens/my_orders/my_orders_screen.dart';
 import 'package:elmosahem_app/screens/profile.dart/profile.dart';
 import 'package:flutter/material.dart';
 
@@ -28,6 +29,7 @@ class _BottomBarState extends State<BottomBar> {
         items: <BottomNavigationBarItem>[
           custombottomNavBar("الرئيسية", Icons.home),
           custombottomNavBar("المفضله", Icons.favorite),
+          custombottomNavBar("المحفظه", Icons.wallet),
           custombottomNavBar("الصفحه الشخصيه", Icons.settings),
         ],
       ),
@@ -44,6 +46,7 @@ class _BottomBarState extends State<BottomBar> {
   static List<Widget> _pages = <Widget>[
     HomeScreen(),
     Favorite(),
+    MyOrdersScreen(),
     Profile(),
   ];
 }
