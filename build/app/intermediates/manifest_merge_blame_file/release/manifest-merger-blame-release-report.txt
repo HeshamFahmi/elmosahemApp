@@ -1,13 +1,13 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-3    package="com.example.elmosahem_app"
+3    package="com.elmosahem.elmosahem_app"
 4    android:versionCode="1"
 5    android:versionName="1.0.0" >
 6
 7    <uses-sdk
 8        android:minSdkVersion="21"
 8-->/home/it400/Downloads/elmosahem_app/android/app/src/main/AndroidManifest.xml
-9        android:targetSdkVersion="29" />
+9        android:targetSdkVersion="31" />
 9-->/home/it400/Downloads/elmosahem_app/android/app/src/main/AndroidManifest.xml
 10
 11    <uses-permission android:name="android.permission.INTERNET" />
@@ -32,11 +32,11 @@
 18-->[androidx.core:core:1.8.0] /home/it400/.gradle/caches/transforms-3/eed3ed3a74dfdb1234819fb205a45280/transformed/core-1.8.0/AndroidManifest.xml:24:18-86
 19        android:icon="@mipmap/ic_launcher"
 19-->/home/it400/Downloads/elmosahem_app/android/app/src/main/AndroidManifest.xml:6:9-43
-20        android:label="El Mosahem - المساهم" >
-20-->/home/it400/Downloads/elmosahem_app/android/app/src/main/AndroidManifest.xml:5:9-45
+20        android:label="المساهم" >
+20-->/home/it400/Downloads/elmosahem_app/android/app/src/main/AndroidManifest.xml:5:9-32
 21        <activity
 21-->/home/it400/Downloads/elmosahem_app/android/app/src/main/AndroidManifest.xml:7:9-27:20
-22            android:name="com.example.elmosahem_app.MainActivity"
+22            android:name="com.elmosahem.elmosahem_app.MainActivity"
 22-->/home/it400/Downloads/elmosahem_app/android/app/src/main/AndroidManifest.xml:8:13-41
 23            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
 23-->/home/it400/Downloads/elmosahem_app/android/app/src/main/AndroidManifest.xml:12:13-163
@@ -166,7 +166,7 @@
 93-->[:image_picker_android] /home/it400/Downloads/elmosahem_app/build/image_picker_android/intermediates/merged_manifest/release/AndroidManifest.xml:10:9-18:20
 94            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
 94-->[:image_picker_android] /home/it400/Downloads/elmosahem_app/build/image_picker_android/intermediates/merged_manifest/release/AndroidManifest.xml:11:13-82
-95            android:authorities="com.example.elmosahem_app.flutter.image_provider"
+95            android:authorities="com.elmosahem.elmosahem_app.flutter.image_provider"
 95-->[:image_picker_android] /home/it400/Downloads/elmosahem_app/build/image_picker_android/intermediates/merged_manifest/release/AndroidManifest.xml:12:13-74
 96            android:exported="false"
 96-->[:image_picker_android] /home/it400/Downloads/elmosahem_app/build/image_picker_android/intermediates/merged_manifest/release/AndroidManifest.xml:13:13-37
@@ -277,7 +277,7 @@
 152-->[com.google.firebase:firebase-common:20.1.1] /home/it400/.gradle/caches/transforms-3/7329d9c2cde1a7a87374ade73564a71f/transformed/jetified-firebase-common-20.1.1/AndroidManifest.xml:26:9-31:39
 153            android:name="com.google.firebase.provider.FirebaseInitProvider"
 153-->[com.google.firebase:firebase-common:20.1.1] /home/it400/.gradle/caches/transforms-3/7329d9c2cde1a7a87374ade73564a71f/transformed/jetified-firebase-common-20.1.1/AndroidManifest.xml:27:13-77
-154            android:authorities="com.example.elmosahem_app.firebaseinitprovider"
+154            android:authorities="com.elmosahem.elmosahem_app.firebaseinitprovider"
 154-->[com.google.firebase:firebase-common:20.1.1] /home/it400/.gradle/caches/transforms-3/7329d9c2cde1a7a87374ade73564a71f/transformed/jetified-firebase-common-20.1.1/AndroidManifest.xml:28:13-72
 155            android:directBootAware="true"
 155-->[com.google.firebase:firebase-common:20.1.1] /home/it400/.gradle/caches/transforms-3/7329d9c2cde1a7a87374ade73564a71f/transformed/jetified-firebase-common-20.1.1/AndroidManifest.xml:29:13-43

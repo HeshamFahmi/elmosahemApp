@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.elmosahem_app"
+    package="com.elmosahem.elmosahem_app"
     android:versionCode="1"
     android:versionName="1.0.0" >
 
     <uses-sdk
         android:minSdkVersion="21"
-        android:targetSdkVersion="29" />
+        android:targetSdkVersion="31" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -17,9 +17,9 @@
     <application
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:icon="@mipmap/ic_launcher"
-        android:label="El Mosahem - المساهم" >
+        android:label="المساهم" >
         <activity
-            android:name="com.example.elmosahem_app.MainActivity"
+            android:name="com.elmosahem.elmosahem_app.MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:exported="true"
             android:hardwareAccelerated="true"
@@ -92,7 +92,7 @@
 
         <provider
             android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
-            android:authorities="com.example.elmosahem_app.flutter.image_provider"
+            android:authorities="com.elmosahem.elmosahem_app.flutter.image_provider"
             android:exported="false"
             android:grantUriPermissions="true" >
             <meta-data
@@ -151,7 +151,7 @@
 
         <provider
             android:name="com.google.firebase.provider.FirebaseInitProvider"
-            android:authorities="com.example.elmosahem_app.firebaseinitprovider"
+            android:authorities="com.elmosahem.elmosahem_app.firebaseinitprovider"
             android:directBootAware="true"
             android:exported="false"
             android:initOrder="100" />

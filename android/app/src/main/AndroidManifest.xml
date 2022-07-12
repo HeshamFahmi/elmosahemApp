@@ -2,7 +2,7 @@
     package="com.elmosahem.elmosahem_app">
     <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="El Mosahem - المساهم"
+        android:label="المساهم"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

@@ -1,4 +1,4 @@
-com.example.elmosahem_app
+com.elmosahem.elmosahem_app
 attr activityAction
 attr activityName
 attr alpha

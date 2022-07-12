@@ -1,1 +1,1 @@
-com.example.elmosahem_app
+com.elmosahem.elmosahem_app

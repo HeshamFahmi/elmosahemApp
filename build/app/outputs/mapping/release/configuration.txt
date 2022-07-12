@@ -129,7 +129,7 @@
 # End of content from /home/it400/snap/flutter/common/flutter/packages/flutter_tools/gradle/flutter_proguard_rules.pro
 # The proguard configuration file for the following section is /home/it400/Downloads/elmosahem_app/build/app/intermediates/aapt_proguard_file/release/aapt_rules.txt
 -keep class androidx.core.app.CoreComponentFactory { <init>(); }
--keep class com.example.elmosahem_app.MainActivity { <init>(); }
+-keep class com.elmosahem.elmosahem_app.MainActivity { <init>(); }
 -keep class com.google.android.gms.common.api.GoogleApiActivity { <init>(); }
 -keep class com.google.android.gms.measurement.AppMeasurementJobService { <init>(); }
 -keep class com.google.android.gms.measurement.AppMeasurementReceiver { <init>(); }
